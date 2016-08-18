@@ -1,6 +1,15 @@
 from random import*
 
-f = input("Hola, ingresa un numero...")
+f = input("Hola, ingresa un numero positivo...")
+
+if f <= 0:
+	print "Estas mal de la cabeza? eso no es un numero positivo."
+	if f == 0:
+		print "Cero no cuenta como positivo."
+	else:
+		print "Por algo pusiste el \"-\" no?"
+	print "No importa yo pondre el numero"
+	f = 2
 
 for l in range(f):
 	n = randrange(0,100)
@@ -11,4 +20,4 @@ if n > 50 and n < 67:
 elif n < 50:
 	print "Oh! usted no sabe que es vivir con suerte..."
 else:
-	print "Al parecer usted tendra buena suerte por esta semana... luego tendra mala suerte por 7 años... lo siento :3"
+	print "Al parecer usted tendra buena suerte por esta semana... luego tendra mala suerte por 7 aÃ±os... lo siento :3"
