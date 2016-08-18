@@ -1,0 +1,14 @@
+from random import*
+
+f = input("Hola, ingresa un numero...")
+
+for l in range(f):
+	n = randrange(0,100)
+	print "Su numero de la suerte numero "+str(l+1)+"es: "+str(n)
+
+if n > 50 and n < 67:
+	print "Vaya usted tiene demasiada suerte
+elif n < 50:
+	print "Oh! usted no sabe que es vivir con suerte..."
+else:
+	print "Al parecer usted tendra buena suerte por esta semana... luego tendra mala suerte por 7 años... lo siento :3"
