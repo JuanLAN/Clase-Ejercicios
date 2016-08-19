@@ -1,0 +1,71 @@
+from Tkinter import *
+import os
+import time
+import random
+root = Tk()
+matriz=[]
+x=0
+y=0
+def posicion(cabeza):
+    global matriz
+    global x
+    global y
+    matriz[x][y]="*"
+    if cabeza=="left":
+        if x>0:
+            x-=1
+    elif cabeza=="right":
+        if x<len(matriz)-1:
+            x+=1
+    elif cabeza=="up":
+        if y>0:
+            y-=1
+    elif cabeza=="down":
+        if y<len(matriz[0])-1:
+            y+=1
+    matriz[x][y]="O"
+
+    
+def leftKey(event):
+    posicion("left")
+
+def rightKey(event):
+    posicion("right")
+
+def upKey(event):
+    posicion("up")
+
+def downKey(event):
+    posicion("down")
+
+def printMat():
+    global matriz
+    for j in range(len(matriz[0])):
+        c=""
+        for i in range(len(matriz)):
+            c+= str(matriz[i][j])
+        print c
+
+def task():
+    clear = lambda: os.system('cls')
+    clear()
+    printMat()
+    root.after(30, task)
+
+
+for i in range(20):
+	c=[]
+	for j in range(20):
+		c.append(" ")
+	matriz.append(c)
+matriz[0][0]="o"
+	
+frame = Frame(root, width=100, height=100)
+root.bind('<Left>', leftKey)
+root.bind('<Right>', rightKey)
+root.bind('<Up>', upKey)
+root.bind('<Down>', downKey)
+frame.pack()
+
+root.after(30, task)
+root.mainloop()
