@@ -1,0 +1,5 @@
+Lee esto noob por favor si te pierdes
+
+GIT PUSH > pone archivitos en la nube
+GIT CLONE > saca archivitos de la nube
+GIT PULL > actualiza archivitos que tu tienes pero sus act. estan en la nube
