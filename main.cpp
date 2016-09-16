@@ -62,6 +62,19 @@ int atoii(char *s)
     return resultado;
 }
 
+int strindex(char *s,char *t)
+{
+    char *p,*q;
+    for(;*s!='\0';s++){
+        *q=*t;
+        *p=*s;
+        for(;*p!='\0'&&*q==*p;p++,q++)
+            ;
+        if(*p!=*s&&*p=='\0')
+            return *s;
+    }        
+}
+
 int main()
 {
     char a='M';
