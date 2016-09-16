@@ -1,2 +1,0 @@
-# entrenadorpokemomo
-fmnaoidmasiogabhsoiewfws<fawijaowihawhack
