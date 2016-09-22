@@ -2,6 +2,28 @@
 
 using namespace std;
 
+void aordenarxd(char *A[])
+{
+    char **q=A;
+    printf("%c\n",**q);
+
+    //int **q=p;
+    char temp;
+    char **punt=q;
+    printf("%c\n",**punt);
+    char **aux;
+    for(int j=0;j<sizeof(A);j++){
+        **punt=**q;
+        printf("%c\n",**punt);
+        **aux=**punt;
+        for(int i=j;i<sizeof(A);i++,punt++)
+            if(*aux<*punt)
+                **aux=**punt;
+        
+        q++;
+    }
+}
+
 void lowerttt(char *s)
 {
     if(*s>='A'&&*s<='Z')
