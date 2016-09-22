@@ -66,13 +66,14 @@ int strindex(char *s,char *t)
 {
     char *p,*q;
     for(;*s!='\0';s++){
-        *q=*t;
-        *p=*s;
-        for(;*p!='\0'&&*q==*p;p++,q++)
+        p=s;
+        q=t;
+        for(;*p==*q;p++,q++)
             ;
-        if(*p!=*s&&*p=='\0')
-            return *s;
-    }        
+        if(q-1!=t&&*q=='\0'){
+            return *p-*s;
+        }
+    }
 }
 
 int main()
@@ -115,6 +116,10 @@ int main()
     printf("%s\n",j);
     int atoint=atoii(j);
     printf("%d\n",atoint);
-
+    
+    char k[15]="hola mundo";
+    char l[10]="la mu";
+    printf("%d\n",strindex(k,l));
+    
     return 0;
 }
