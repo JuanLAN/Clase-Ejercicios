@@ -5,21 +5,18 @@ using namespace std;
 void aordenarxd(char *A[])
 {
     char **q=A;
-    printf("%c\n",**q);
-
-    //int **q=p;
-    char temp;
+    char *temp;
     char **punt=q;
-    printf("%c\n",**punt);
     char **aux;
-    for(int j=0;j<sizeof(A);j++){
-        **punt=**q;
-        printf("%c\n",**punt);
-        **aux=**punt;
-        for(int i=j;i<sizeof(A);i++,punt++)
-            if(*aux<*punt)
-                **aux=**punt;
-        
+    for(int j=0;A[j]!=0;j++){
+        punt=q;
+        aux=punt;
+        for(int i=j;A[i]!=0;i++,punt++)
+            if(**aux>**punt)
+                aux=punt;
+        temp=*aux;
+        *aux=*q;
+        *q=temp;
         q++;
     }
 }
@@ -141,6 +138,11 @@ int main()
     char k[15]="hola mundo";
     char l[10]="la mu";
     printf("%d\n",strindex(k,l));
+    
+    char *A[10]={"anc","hola","boli","ravioli","berto","casa"};
+    aordenarxd(A);
+    for(int i=0;i<6;i++)
+        printf("%s\n",A[i]);
     
     return 0;
 }
