@@ -24,11 +24,13 @@ void ImprimeLE(struct Nodo *l)
 {
     struct Nodo *n;
     n = l;
-    printf("%d\n",n->valor);
+    if(n->next==NULL)
+        printf("%d",n->valor);
     while(n->next!=NULL){
+        printf("%d,",n->valor);
         n=n->next;
-        printf("%d\n",n->valor);
     }
+    printf("%d\n",n->valor);
 }
 
 struct Nodo* AnadirenLE(struct Nodo *l,int val,int pos)
