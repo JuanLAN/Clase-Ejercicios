@@ -89,7 +89,7 @@ struct Nodo* AnadirenordLE(struct Nodo *l,int val)
         return x;
 }
 
-struct Nodo* BorrarLE(struct Nodo *l,int pos)
+struct Nodo* BorrarposLE(struct Nodo *l,int pos)
 {
     struct Nodo *n,*prev;
     int i;
@@ -105,6 +105,30 @@ struct Nodo* BorrarLE(struct Nodo *l,int pos)
     }
     else if(n->next==NULL){
         prev->next=NULL;
+        free(n);
+        return l;
+    }
+    else{
+        prev->next=n->next;
+        free(n);
+        return l;
+    }
+}
+
+struct Nodo* BorrarkeyLE(struct Nodo *l,int key)
+{
+    struct Nodo *n,*prev;
+    n = l;
+    while(n->valor!=key&&n->next!=NULL){
+        prev = n;
+        n = n->next;
+    }
+    if(n==l){
+        prev=n->next;
+        free(n);
+        return prev;
+    }
+    else if(n->next==NULL){
         free(n);
         return l;
     }
@@ -143,7 +167,8 @@ int main()
     lis = AnadirenordLE(lis,2);
     lis2 = AnadirenordLE(lis2,15);
     ConcatenarLE(lis,lis2);
-    lis = BorrarLE(lis,0);
+    lis = BorrarposLE(lis,0);
+    lis = BorrarkeyLE(lis,7);
     ImprimeLE(lis);
     return 0;
 }
